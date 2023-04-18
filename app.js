@@ -1,31 +1,35 @@
-function EmployeeInformation(EmployeeID, fullName, department, level, salary) {
+let arr = [];
+
+function EmployeeInformation(EmployeeID, fullName, department, level) {
     this.EmployeeID = EmployeeID;
     this.fullName = fullName;
     this.department = department;
     this.level = level;
 
-    if (level === "Senior") {
-        min = 1500
-        max = 2000
-        salary = Math.floor(Math.random() * (max - min + 1)) + min
-    } else if (level === "Mid-Senior") {
-        min = 1000
-        max = 1500
-        salary = Math.floor(Math.random() * (max - min + 1)) + min
-    } else if (level === "Junior") {
-        min = 500
-        max = 1000
-        salary = Math.floor(Math.random() * (max - min + 1)) + min
-    }
+    this.salary = this.calcSalary();
+    this.netSalary = 0.925 * this.salary
 
-    this.salary = salary;
-    this.netSalary = salary * 0.925
+    this.para = `The Full Name is ${this.fullName}, the employee ID is ${this.EmployeeID}, the employee department is ${this.department},
+    the level is ${this.level} and the salary is ${this.salary} and the salary with tax 7.5% will be ${this.netSalary}`;
+
+    arr.push(this);
 }
 
-
-
-
-
+EmployeeInformation.prototype.calcSalary = function () {
+    if (this.level === "Senior") {
+        min = 1500;
+        max = 2000;
+        return (Math.floor(Math.random() * (max - min + 1)) + min);
+    } else if (this.level === "Mid-Senior") {
+        min = 1000;
+        max = 1500;
+        return (Math.floor(Math.random() * (max - min + 1)) + min);
+    } else if (this.level === "Junior") {
+        min = 500;
+        max = 1000;
+        return (Math.floor(Math.random() * (max - min + 1)) + min);
+    }
+}
 
 const emp1000 = new EmployeeInformation(1000, "Ghazi Samer", "Administration", "Senior");
 const emp1001 = new EmployeeInformation(1001, "Lana Ali", "Finance", "Senior");
@@ -35,14 +39,9 @@ const emp1004 = new EmployeeInformation(1004, "Omar Zaid", "Development", "Senio
 const emp1005 = new EmployeeInformation(1005, "Rana Saleh", "Development", "Junior");
 const emp1006 = new EmployeeInformation(1006, "Hadi Ahmad", "Finance", "Mid-Senior");
 
-let arr = [emp1000, emp1001, emp1002, emp1003, emp1004, emp1005, emp1006];
-
 for (let i = 0; i < arr.length; i++) {
     const newP = document.createElement("p");
-    newP.textContent = `The Full Name is ${arr[i].fullName}, the employee ID is ${arr[i].EmployeeID}, the employee department is
-    ${arr[i].department}, the level is ${arr[i].level} , and the salary withot tax is ${arr[i].salary}, and the net salary with tax is 
-    ${arr[i].netSalary}`;
-
-    const parantelemant = document.getElementById("list")
-    parantelemant.appendChild(newP)
+    newP.textContent = arr[i].para;
+    const parentElement = document.getElementById("list");
+    parentElement.appendChild(newP);
 }
