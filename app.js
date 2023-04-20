@@ -2,7 +2,7 @@
 
 
 
-function Employee(fullName, department, level, image, employeeID = 0) {
+function Employee(fullName, department, level, image, employeeID) {
     this.fullName = fullName;
     this.department = department;
     this.level = level;
@@ -10,6 +10,8 @@ function Employee(fullName, department, level, image, employeeID = 0) {
     this.employeeID = employeeID;
     this.salary = this.salaryEmployee();
 }
+
+
 
 Employee.prototype.salaryEmployee = function () {
     let level = this.level;
@@ -34,11 +36,7 @@ Employee.prototype.salaryEmployee = function () {
 
 
 
-
-
-
-
-
+//render the data from js to html
 Employee.prototype.cards = function () {
     const administrator = document.getElementById('Administration')
     const developer = document.getElementById('Development')
@@ -47,6 +45,7 @@ Employee.prototype.cards = function () {
 
     const depdiv = document.createElement('div')
     depdiv.className = "divclass"
+
     if (this.department === "Administration") {
         administrator.appendChild(depdiv);
     } else if (this.department === "Finance") {
@@ -89,8 +88,6 @@ Employee.prototype.cards = function () {
     theSalaryEmp.textContent = ` The Salary:${this.salary}`
     theSalaryEmp.className = "salaryy"
     depdiv.appendChild(theSalaryEmp)
-
-
 }
 
 
@@ -102,16 +99,32 @@ let emp1004 = new Employee('Omar Zaid', 'Development', 'Senior', "https://github
 let emp1005 = new Employee('Rana Saleh', 'Development', 'Junior', "https://github.com/LTUC/amman-prep-d13/blob/main/Class-08/lab/assets/Rana.jpg?raw=true", 1005)
 let emp1006 = new Employee('Hadi Ahmad', 'Finance', 'Mid-Senior', "https://github.com/LTUC/amman-prep-d13/blob/main/Class-08/lab/assets/Hadi.jpg?raw=true", 1006)
 
+
+// function raghad(fullName, department, level) {
+//     let x = new Employee(fullName, department, level)
+//     return x
+// }
+// emp1009 = raghad("gazi", "Administration", "Senior")
+
+
+
+
+
 let array = [emp1000, emp1001, emp1002, emp1003, emp1004, emp1005, emp1006]
 for (let i = 0; i < array.length; i++) {
+    //call the rendered function
     array[i].cards()
 }
+
+
 
 
 Employee.prototype.random = function (heightEmpID, lowID) {
     this.employeeID = Math.floor(Math.random() * (heightEmpID - lowID + 1)) + lowID
     return this.employeeID
 }
+
+
 
 
 function Emplo(element) {
@@ -130,3 +143,4 @@ function Emplo(element) {
 
 const formApply = document.getElementById('empForm')
 formApply.addEventListener('submit', Emplo)
+
