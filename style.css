@@ -1,11 +1,97 @@
-header h1 {
-    background-color: #6adf68;
-    text-align: center;
+* {
+    padding: 0;
     margin: 0;
 }
 
+/* header style */
 
-nav {
+header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: #6adf68;
+    border: solid;
+}
+
+
+
+header nav {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
+
+header nav a {
+    text-decoration: none;
+    border: solid black;
+    border-radius: 10px;
+    padding: 3px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+/* main style */
+main div {
+    margin: 20px;
+    border: solid;
+    width: fit-content;
+}
+
+main div div {
+    display: block;
+    width: max-content;
+    margin: 20px;
+    padding: 10px;
+    border: solid;
+}
+
+
+
+
+
+/* footer style */
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+footer div {
+    display: flex;
+    background-color: #6adf68;
+    border: solid;
+    height: 50px;
+    bottom: auto;
+}
+
+footer div copyright {
+    padding: 10px;
+    margin: 10px;
+}
+
+footer nav {
+    position: absolute;
+    right: 10px;
+    bottom: 13px;
+}
+
+footer nav a {
+    text-decoration: none;
+    border: solid black;
+    border-radius: 10px;
+    padding: 3px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+/* header h1 {
+    background-color: #6adf68;
+    text-align: center;
+    margin: 0;
+} */
+
+
+/* nav {
     background-color: grey;
     text-align: center;
 }
@@ -14,9 +100,9 @@ nav a {
     padding: 100px;
     text-decoration: none;
     color: black;
-}
+} */
 
-footer {
+/* footer {
     background-color: #6adf68;
     text-align: center;
     font-size: 15px;
@@ -31,4 +117,4 @@ body {
     flex-direction: column;
     justify-content: space-between;
 
-}
+} */
